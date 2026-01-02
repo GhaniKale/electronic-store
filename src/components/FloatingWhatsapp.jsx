@@ -7,16 +7,15 @@ export default function FloatingWhatsapp() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat via WhatsApp"
-className="
-  fixed bottom-6 right-6 z-[9999]
-  flex items-center justify-center
-  w-14 h-14 rounded-full
-  bg-green-500 shadow-lg
-  animate-bounce
-  pointer-events-auto
-"
-    >
-      <FaWhatsapp className="text-white text-3xl translate-x-[1px] translate-y-[1px]" />
+      className="
+    fixed bottom-6 right-6 z-[9999]
+    grid place-items-center
+    w-14 h-14 rounded-full
+    bg-green-500 shadow-lg
+    hover:scale-110 transition
+    pointer-events-auto
+  ">
+      <FaWhatsapp className="text-white text-3xl" />
     </a>
   );
 }

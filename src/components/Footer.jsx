@@ -1,151 +1,161 @@
 import {
-  FaInstagram,
-  FaFacebookF,
-  FaLinkedinIn,
-  FaTiktok,
-  FaMapMarkerAlt,
-  FaPhoneAlt,
-  FaEnvelope,
-  FaClock,
-} from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
+  Instagram,
+  Facebook,
+  Twitter,
+  Linkedin,
+  MapPin,
+  Phone,
+  Mail,
+} from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function Footer() {
+  const socialLinks = [
+    {
+      icon: Instagram,
+      label: "Instagram",
+      url: "https://instagram.com/code.withu",
+    },
+    { icon: Facebook, label: "Facebook", url: "https://facebook.com/username" },
+    { icon: Twitter, label: "Twitter", url: "https://twitter.com/username" },
+    {
+      icon: Linkedin,
+      label: "LinkedIn",
+      url: "https://linkedin.com/in/username",
+    },
+  ];
+
+  const navLinks = [
+    { label: "Home", href: "#home" },
+    { label: "About", href: "#about" },
+    { label: "Pricing", href: "#pricing" },
+    { label: "Projects", href: "#projects" },
+    { label: "Contact", href: "#contact" },
+  ];
+
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: { staggerChildren: 0.15 },
+    },
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
+
   return (
-    <footer className="bg-white text-gray-800 pt-16">
-      <div className="max-w-6xl mx-auto px-6">
-
-        {/* TOP GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
-
+    <footer className="bg-gray-900 text-white overflow-hidden">
+      <motion.div
+        variants={container}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        className="max-w-6xl mx-auto px-6 py-14">
+        {/* TOP */}
+        <div className="grid md:grid-cols-3 gap-10 pb-10 border-b border-gray-800">
           {/* BRAND */}
-          <div>
-            <a href="#home" className="inline-block">
-              <h2 className="text-2xl font-bold text-blue-600 mb-3 hover:opacity-80 transition">
-                codewithu
-              </h2>
-            </a>
-            <p className="text-sm text-gray-600 leading-relaxed">
-              We build modern, responsive, and SEO-friendly websites that help
-              businesses grow online with high-quality design and performance.
+          <motion.div variants={item}>
+            <h2 className="text-2xl font-bold text-blue-500 mb-3">codewithu</h2>
+            <p className="text-sm text-gray-400 leading-relaxed max-w-sm">
+              Building modern, responsive websites that help businesses grow
+              online.
             </p>
-          </div>
+          </motion.div>
 
-          {/* QUICK LINKS */}
-          <div>
-            <h3 className="font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2 text-sm text-gray-600">
-              <li><a href="#home" className="hover:text-blue-600">Home</a></li>
-              <li><a href="#about" className="hover:text-blue-600">About</a></li>
-              <li><a href="#pricing" className="hover:text-blue-600">Pricing</a></li>
-              <li><a href="#projects" className="hover:text-blue-600">Projects</a></li>
-              <li><a href="#testimonials" className="hover:text-blue-600">Testimonials</a></li>
-              <li><a href="#contact" className="hover:text-blue-600">Contact</a></li>
+          {/* NAV */}
+          <motion.div variants={item}>
+            <h3 className="text-xs font-semibold uppercase tracking-widest text-gray-300 mb-4">
+              Quick Links
+            </h3>
+            <ul className="space-y-2 text-sm">
+              {navLinks.map((link) => (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    className="
+                      text-gray-400 relative
+                      hover:text-blue-400 transition
+                      after:absolute after:left-0 after:-bottom-1
+                      after:h-[2px] after:w-0 after:bg-blue-400
+                      after:transition-all hover:after:w-full
+                    ">
+                    {link.label}
+                  </a>
+                </li>
+              ))}
             </ul>
-          </div>
+          </motion.div>
 
-        {/* SOCIAL MEDIA */}
-<div>
-  <h3 className="font-semibold mb-4">Social Media</h3>
-  <ul className="space-y-2 text-sm text-gray-600">
-    <li>
-      <a
-        href="https://instagram.com/username"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center gap-[6px] hover:text-blue-600 transition"
-      >
-        <FaInstagram className="text-sm" />
-        <span>Instagram</span>
-      </a>
-    </li>
+          {/* CONTACT */}
+          <motion.div variants={item}>
+            <h3 className="text-xs font-semibold uppercase tracking-widest text-gray-300 mb-4">
+              Contact
+            </h3>
 
-    <li>
-      <a
-        href="https://facebook.com/username"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center gap-[6px] hover:text-blue-600 transition"
-      >
-        <FaFacebookF className="text-sm" />
-        <span>Facebook</span>
-      </a>
-    </li>
-
-    <li>
-      <a
-        href="https://twitter.com/username"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center gap-[6px] hover:text-blue-600 transition"
-      >
-        <FaXTwitter className="text-sm" />
-        <span>Twitter / X</span>
-      </a>
-    </li>
-
-    <li>
-      <a
-        href="https://tiktok.com/@username"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center gap-[6px] hover:text-blue-600 transition"
-      >
-        <FaTiktok className="text-sm" />
-        <span>TikTok</span>
-      </a>
-    </li>
-
-    <li>
-      <a
-        href="https://linkedin.com/in/username"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center gap-[6px] hover:text-blue-600 transition"
-      >
-        <FaLinkedinIn className="text-sm" />
-        <span>LinkedIn</span>
-      </a>
-    </li>
-  </ul>
-</div>
-
-
-          {/* GET IN TOUCH */}
-          <div>
-            <h3 className="font-semibold mb-4">Get in Touch</h3>
-            <ul className="space-y-3 text-sm text-gray-600">
-              <li className="flex items-start gap-2">
-                <FaMapMarkerAlt className="mt-1" />
-                <span>Remote – Jakarta, Indonesia</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <FaEnvelope />
-                <a href="mailto:codewithu@gmail.com" className="hover:text-blue-600">
-                  codewithu@gmail.com
+            <ul className="space-y-3 text-sm text-gray-400">
+              <li className="grid grid-cols-[20px_1fr] items-center gap-3">
+                <Mail size={18} />
+                <a
+                  href="mailto:codewithu@gmail.com"
+                  className="hover:text-blue-400 transition">
+                  withucode@email.com
                 </a>
               </li>
-              <li className="flex items-center gap-2">
-                <FaPhoneAlt />
-                <a href="tel:+6285183219010" className="hover:text-blue-600">
+
+              <li className="grid grid-cols-[20px_1fr] items-center gap-3">
+                <Phone size={18} />
+                <a
+                  href="tel:+6285972842784"
+                  className="hover:text-blue-400 transition">
                   +62 859-7284-2784
                 </a>
               </li>
-              <li className="flex items-center gap-2">
-                <FaClock />
-                <span>Mon–Sun: 8AM – 9PM (UTC+7)</span>
+
+              <li className="grid grid-cols-[20px_1fr] items-center gap-3">
+                <MapPin size={18} />
+                <span>Remote · Jakarta, Indonesia</span>
               </li>
             </ul>
-          </div>
-
+          </motion.div>
         </div>
 
         {/* BOTTOM */}
-        <div className="border-t mt-12 py-6 text-center text-sm text-gray-500">
-          © {new Date().getFullYear()} Softver House. All rights reserved.
-        </div>
+        <motion.div
+          variants={item}
+          className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-5">
+          <p className="text-sm text-gray-400">
+            © {new Date().getFullYear()} Code With U. All rights reserved.
+          </p>
 
-      </div>
+          <div className="flex gap-3">
+            {socialLinks.map((social) => {
+              const Icon = social.icon;
+              return (
+                <motion.a
+                  key={social.label}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
+                  whileHover={{ scale: 1.15 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="
+                    grid place-items-center
+                    w-9 h-9 rounded-full
+                    bg-gray-800 text-gray-400
+                    hover:bg-blue-600 hover:text-white
+                    transition-colors
+                  ">
+                  <Icon size={18} />
+                </motion.a>
+              );
+            })}
+          </div>
+        </motion.div>
+      </motion.div>
     </footer>
   );
 }
