@@ -104,15 +104,15 @@ export const projects = [
   },
   {
     id: 12,
-    title: "Online Training Platform",
-    description: "Website for online training & certification.",
+    title: "Pomodoro Todo",
+    description:
+      "An educational productivity app using the Pomodoro technique for focused learning.",
     category: "education",
-    image:
-      "https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=800&q=80",
-    vercelUrl: "#",
+    image: "./asset/todo.png",
+    vercelUrl: "https://pomodoro-todo-iota.vercel.app/",
   },
 
-  /* ===================== RENTAL ===================== */
+  /* ==================== RENTAL ===================== */
   {
     id: 13,
     title: "Car Rental Website",
@@ -143,7 +143,8 @@ export const projects = [
   {
     id: 15,
     title: "Produktivity",
-    description: "Rental website for houses, apartments & rooms.",
+    description:
+      "An educational productivity app with activity and habit tracking features.",
     category: "education",
     image: "./asset/priduktivity.png",
     vercelUrl: "https://produktivity.vercel.app/",
