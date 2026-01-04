@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Keranjang Belanja</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2>🛒 Keranjang Belanja</h2>
+
+    {% if cart %}
+    <table class="table table-bordered mt-3">
+        <tr>
+            <th>Produk</th>
+            <th>Harga</th>
+            <th>Qty</th>
+            <th>Subtotal</th>
+        </tr>
+
+        {% for key, item in cart.items %}
+        <tr>
+            <td>{{ item.name }}</td>
+            <td>Rp {{ item.price }}</td>
+            <td>{{ item.qty }}</td>
+            <td>Rp {{ item.price|add:0|add:item.price }}</td>
+
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h4>Total: Rp {{ total }}</h4>
+<a href="{% url 'checkout' %}" class="btn btn-success mt-3">
+    Checkout via WhatsApp
+</a>
+
+    <a href="/" class="btn btn-secondary">Lanjut Belanja</a>
+
+    {% else %}
+    <p>Keranjang masih kosong.</p>
+    <a href="/" class="btn btn-primary">Belanja Sekarang</a>
+    {% endif %}
+</div>
+
+</body>
+</html>
