@@ -1,5 +1,0 @@
-1️⃣ Detail halaman produk
-2️⃣ Keranjang belanja 🛒
-3️⃣ Checkout WhatsApp
-4️⃣ Login user
-5️⃣ Deploy ke internet 🌍
