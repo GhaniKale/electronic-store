@@ -1,1 +1,2 @@
-python -m pip freeze > requirements.txt
+Django==5.1.4
+tzdata
